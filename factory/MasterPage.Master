@@ -1,0 +1,624 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="factory.MasterPage" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="img/companyicon.png" type="image/x-icon" />
+            <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        .sb-sidenav-collapse-arrow {
+            display: inline-block;
+            margin-left: auto;
+            transition: transform 0.15s ease;
+        }
+         
+         .list-group-item.collapsed .sb-sidenav-collapse-arrow{
+            transform: rotate(-90deg);
+         }
+        
+        #Tag_acct,#Tag_r,#ac_power{
+            display:flex;
+        }
+
+
+        #Tag_KY,#Tag_BL,#Tag_QX,#Tag_ZB,#Tag_KH,#Tag_LD,#Tag_LZ,#Tag_HL{
+            padding-left:15%;
+        }
+        #KY_12, #KY_34, #KY_56 {
+            list-style-type:square;
+            padding-left:25%;
+        }
+        #menu-toggle{
+            border-color : #DFDFDF;
+            border-style : solid;
+            border-width : 1px 1px 1px 0px;
+        }
+        #ac_power_LD1,#ac_power_LD2,#ac_power_QX1,#ac_power_QX2{
+            padding-left:25%;
+        }
+
+        /*從這邊開始才是觀音廠~花蓮廠*/
+        #factory_KY,#factory_BL,#factory_QX,#factory_ZB,#factory_KH,#factory_LD,
+        #factory_LZ,#factory_HL,#sys_maint,#factory_XG{
+            display:flex;
+        }
+        #Mill_detail,#factory_state,
+        #factory_KY_Power, #factory_KY_Air, #factory_KY_Air_1, #factory_KY_Air_2, #factory_KY_Mill_1, #factory_KY_Mill_3,#factory_KY_Mill_5,#factory_KY_PV,#factory_KY_cycle_1,#factory_KY_cycle_3,#factory_KY_cycle_5,
+        #factory_BL_Power, #factory_BL_Air, #factory_BL_Mill_1, #factory_BL_Mill_3,#factory_BL_cycle_1,#factory_BL_cycle_3,
+        #factory_QX_Power, #factory_QX_Air, #factory_QX_Air1, #factory_QX_Air2, #factory_QX_Mill_1, #factory_QX_Mill_3,#factory_QX_cycle_1,#factory_QX_cycle_3,
+        #factory_ZB_Power, #factory_ZB_Air, #factory_ZB_Air_1, #factory_ZB_Air_4, #factory_ZB_Mill_1, #factory_ZB_Mill_3, #factory_ZB_Mill_5, #factory_ZB_Mill_7,#factory_ZB_PV_1,#factory_ZB_PV_2,#factory_ZB_cycle_1,#factory_ZB_cycle_3,#factory_ZB_cycle_5,#factory_ZB_cycle_7,
+        #factory_KH_Power, #factory_KH_Air, #factory_KH_Mill,#factory_KH_cycle,
+        #factory_LD_Power, #factory_LD_Air, #factory_LD_Air1, #factory_LD_Air2, #factory_LD_Mill, #factory_LD_Mill_1, #factory_LD_Mill_2,#factory_LD_cycle_1,#factory_LD_cycle_2,
+        #factory_LZ_Power, #factory_LZ_Air, #factory_LZ_Mill, #factory_LZ_PV,#factory_LZ_cycle,
+        #factory_HL_Power, #factory_HL_Air, #factory_HL_Mill,#factory_HL_cycle,
+        #factory_XG_PV
+        {
+            padding-left:15%;
+        }
+    </style>
+
+</head>
+<body>
+      <form id="form1" runat="server">
+      <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+                <div class="bg-light border-right" id="sidebar-wrapper">
+                    <div class="sidebar-heading"></div>
+                    <div class="list-group list-group-flush">
+                        
+                         <asp:HyperLink ID="acct_mgt" runat="server" NavigateUrl="/acct_mgt/acct_mgt.aspx"
+                            class="list-group-item list-group-item-action bg-light collapsed">
+                            <b>帳號管理</b>
+                        </asp:HyperLink>
+
+                        <asp:HyperLink ID="Tag_acct" runat="server"
+                            class="list-group-item list-group-item-action bg-light collapsed" style="position:relative" data-toggle="collapse" href="#show" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <b>Tag管理</b>
+                            <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+                        
+                        <div class="collapse" id="show">
+                            <asp:HyperLink ID="Tag_s" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Tag/Tag_acct.aspx">
+                                <b>Tag選取</b>
+                            </asp:HyperLink>
+                            <asp:HyperLink ID="Tag_u" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Tag/Tag_Modify.aspx">
+                                <b>Tag設定</b>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="Tag_t" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Tag/Tag_trend.aspx">
+                                <b>趨勢圖-分鐘</b>
+                            </asp:HyperLink>
+
+                             <asp:HyperLink ID="Tag_h" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Tag/Tag_trend_h.aspx">
+                                <b>趨勢圖-小時</b>
+                            </asp:HyperLink>
+                        </div>
+                        
+                        <!--
+                        <asp:HyperLink ID="Tag_r" runat="server"
+                            class="list-group-item list-group-item-action bg-light collapsed" data-toggle="collapse" href="#show1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <b>磨機日表</b>
+                            <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+
+                        <div class="collapse" id="show1">
+                            <asp:HyperLink ID="Tag_KY" runat="server"
+                                class="list-group-item list-group-item-action bg-light collapsed" data-toggle="collapse" href="#show2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <li><b>觀音廠</b></li>
+                            </asp:HyperLink>
+                            <div class="collapse" id="show2">
+                                <asp:HyperLink ID="KY_12" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Tag_report_KY.aspx?M=12">
+                                    <li><b>磨機1、2號</b></li>
+                                </asp:HyperLink>
+                                <asp:HyperLink ID="KY_34" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Tag_report_KY.aspx?M=34">
+                                    <li><b>磨機3、4號</b></li>
+                                </asp:HyperLink>
+                                <asp:HyperLink ID="KY_56" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Tag_report_KY.aspx?M=56">
+                                    <li><b>磨機5、6號</b></li>
+                                </asp:HyperLink>
+                            </div>
+
+                            <asp:HyperLink ID="Tag_BL" runat="server"
+                                class="list-group-item list-group-item-action bg-light collapsed" data-toggle="collapse" href="#show3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <li><b>八里廠</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="Tag_QX" runat="server"
+                                class="list-group-item list-group-item-action bg-light collapsed" data-toggle="collapse" href="#show4" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <li><b>全興廠</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="Tag_ZB" runat="server"
+                                class="list-group-item list-group-item-action bg-light collapsed" data-toggle="collapse" href="#show5" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <li><b>彰濱廠</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="Tag_KH" runat="server"
+                                class="list-group-item list-group-item-action bg-light collapsed" data-toggle="collapse" href="#show6" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <li><b>高雄廠</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="Tag_LD" runat="server"
+                                class="list-group-item list-group-item-action bg-light collapsed" data-toggle="collapse" href="#show7" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <li><b>龍德廠</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="Tag_LZ" runat="server"
+                                class="list-group-item list-group-item-action bg-light collapsed" data-toggle="collapse" href="#show8" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <li><b>利澤廠</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="Tag_HL" runat="server"
+                                class="list-group-item list-group-item-action bg-light collapsed" data-toggle="collapse" href="#show9" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                <li><b>花蓮廠</b></li>
+                            </asp:HyperLink>
+                        </div>
+                        -->
+
+                        <!--
+                        <asp:HyperLink ID="ac_power" runat="server"
+                            class="list-group-item list-group-item-action bg-light collapsed" data-toggle="collapse" href="#ac_power_f" role="button" aria-expanded="false" aria-controls="ac_power_f">
+                            <b>空壓機比功率</b>
+                            <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+
+                        <div class="collapse" id="ac_power_f">
+                            <asp:HyperLink ID="ac_power_KY" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=KY-T1HIST&M=0">
+                                <b>觀音廠</b>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="ac_power_BL" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=BL-T1HIST&M=0">
+                                <b>八里廠</b>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="ac_power_QX" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=QX-T1HIST&M=0">
+                                <b>全興廠</b>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="ac_power_QX1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=QX-T1HIST&M=1">
+                                <b>全興廠#1</b>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="ac_power_QX2" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=QX-T1HIST&M=2">
+                                <b>全興廠#2</b>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="ac_power_ZB" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=ZB-T1HIST&M=0">
+                                <b>彰濱廠</b>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="ac_power_KH" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=KH-PCC-LH&M=0">
+                                <b>高雄廠</b>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="ac_power_LD" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=LD-T1HIST&M=0">
+                                <b>龍德廠</b>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="ac_power_LD1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=LD-T1HIST&M=1">
+                                <b>龍德廠#1</b>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="ac_power_LD2" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=LD-T1HIST&M=2">
+                                <b>龍德廠#2</b>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="ac_power_LZ" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=LZ-T1HIST&M=0">
+                                <b>利澤廠</b>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="ac_power_HL" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=HL-T1HIST&M=0">
+                                <b>花蓮廠</b>
+                            </asp:HyperLink>
+                        </div>
+                        -->
+
+                        
+                        <asp:HyperLink ID="sys_maint" runat="server"
+                            class="list-group-item list-group-item-action bg-light collapsed" style="position:relative" data-toggle="collapse" href="#show1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <b>系統維護</b>
+                            <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+                        
+                        <div class="collapse" id="show1">
+                            <asp:HyperLink ID="Mill_detail" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Sys_maint/Detail.aspx?F=KY&M=1&B=Power">
+                                <li><b>磨機日報Tag對應表</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_state" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Light/Factory_state.aspx">
+                                <li><b>工廠電腦狀態</b></li>
+                            </asp:HyperLink>
+                        </div>
+                        
+
+                        <asp:HyperLink ID="check_data" runat="server" NavigateUrl="/Check/Check_data.aspx?F=KY&M=0"
+                            class="list-group-item list-group-item-action bg-light collapsed">
+                            <b>中控室檢測</b>
+                        </asp:HyperLink>
+
+                        <asp:HyperLink ID="check_lb" runat="server" NavigateUrl="/Check/add_Quality.aspx"
+                            class="list-group-item list-group-item-action bg-light collapsed">
+                            <b>實驗室/品管檢測</b>
+                        </asp:HyperLink>
+
+                        <asp:HyperLink ID="tpc_power" runat="server" NavigateUrl="/Tpc_Power/Tpc_Power.aspx?F=KY&T=D"
+                            class="list-group-item list-group-item-action bg-light collapsed">
+                            <b>台電用電量</b>
+                        </asp:HyperLink>
+
+
+                        <asp:HyperLink ID="factory_KY" runat="server" NavigateUrl="/factory_index/index.aspx?F=KY-T1HIST"
+                            class="list-group-item list-group-item-action bg-light collapsed" Visible="False">
+                            <b>觀音廠</b>
+                        <div class="sb-sidenav-collapse-arrow"><svg id="down_KY" style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KY_Power" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/power/Power_H.aspx?F=KY-T1HIST" Visible="False">
+                                <li><b>用電量</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KY_Air" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=KY-T1HIST&M=0" Visible="False">
+                                <li><b>空壓機</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KY_Air_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=KY-T1HIST&M=1" Visible="False">
+                                <li><b>空壓機#1</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KY_Air_2" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=KY-T1HIST&M=2" Visible="False">
+                                <li><b>空壓機#2</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KY_Mill_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=KY-T1HIST&M=1" Visible="False">
+                                <li><b>磨機日報#1#2</b></li>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="factory_KY_Mill_3" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=KY-T1HIST&M=3" Visible="False">
+                                <li><b>磨機日報#3#4</b></li>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="factory_KY_Mill_5" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=KY-T1HIST&M=5" Visible="False">
+                                <li><b>磨機日報#5#6</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KY_cycle_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=KY-T1HIST&M=1" Visible="False">
+                                <li><b>循環提運機#1#2</b></li>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="factory_KY_cycle_3" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=KY-T1HIST&M=3" Visible="False">
+                                <li><b>循環提運機#3#4</b></li>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="factory_KY_cycle_5" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=KY-T1HIST&M=5" Visible="False">
+                                <li><b>循環提運機#5#6</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KY_PV" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/PV/PV_H.aspx?F=KY-T1HIST" Visible="False">
+                                <li><b>太陽能</b></li>
+                            </asp:HyperLink>
+
+
+
+                        <asp:HyperLink ID="factory_BL" runat="server" NavigateUrl="/factory_index/index.aspx?F=BL-T1HIST"
+                            class="list-group-item list-group-item-action bg-light collapsed" Visible="False">
+                            <b>八里廠</b>
+                        <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_BL_Power" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/power/Power_H.aspx?F=BL-T1HIST" Visible="False">
+                                <li><b>用電量</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_BL_Air" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=BL-T1HIST&M=0" Visible="False">
+                                <li><b>空壓機</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_BL_Mill_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=BL-T1HIST&M=1" Visible="False">
+                                <li><b>磨機日報#1#2</b></li>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="factory_BL_Mill_3" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=BL-T1HIST&M=3" Visible="False">
+                                <li><b>磨機日報#3#4</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_BL_cycle_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=BL-T1HIST&M=1" Visible="False">
+                                <li><b>循環提運機#1#2</b></li>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="factory_BL_cycle_3" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=BL-T1HIST&M=3" Visible="False">
+                                <li><b>循環提運機#3#4</b></li>
+                            </asp:HyperLink>
+                            
+
+
+                        <asp:HyperLink ID="factory_QX" runat="server" NavigateUrl="/factory_index/index.aspx?F=QX-T1HIST"
+                            class="list-group-item list-group-item-action bg-light collapsed" Visible="False">
+                            <b>全興廠</b>
+                        <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_QX_Power" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/power/Power_H.aspx?F=QX-T1HIST" Visible="False">
+                                <li><b>用電量</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_QX_Air" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=QX-T1HIST&M=0" Visible="False">
+                                <li><b>空壓機</b></li>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="factory_QX_Air1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=QX-T1HIST&M=1" Visible="False">
+                                <li><b>空壓機#1</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_QX_Air2" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=QX-T1HIST&M=2" Visible="False">
+                                <li><b>空壓機#2</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_QX_Mill_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=QX-T1HIST&M=1" Visible="False">
+                                <li><b>磨機日報#1</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_QX_Mill_3" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=QX-T1HIST&M=3" Visible="False">
+                                <li><b>磨機日報#2#3</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_QX_cycle_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=QX-T1HIST&M=1" Visible="False">
+                                <li><b>循環提運機#1</b></li>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="factory_QX_cycle_3" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=QX-T1HIST&M=3" Visible="False">
+                                <li><b>循環提運機#2#3</b></li>
+                            </asp:HyperLink>
+
+
+
+                        <asp:HyperLink ID="factory_ZB" runat="server" NavigateUrl="/factory_index/index.aspx?F=ZB-T1HIST"
+                            class="list-group-item list-group-item-action bg-light collapsed" Visible="False">
+                            <b>彰濱廠</b>
+                        <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_ZB_Power" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/power/Power_H.aspx?F=ZB-T1HIST" Visible="False">
+                                <li><b>用電量</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_ZB_Air" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=ZB-T1HIST&M=0" Visible="False">
+                                <li><b>空壓機</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_ZB_Air_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=ZB-T1HIST&M=1" Visible="False">
+                                <li><b>空壓機#1#2#3</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_ZB_Air_4" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=ZB-T1HIST&M=4" Visible="False">
+                                <li><b>空壓機#4#5</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_ZB_Mill_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=ZB-T1HIST&M=1" Visible="False">
+                                <li><b>磨機日報#1#2</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_ZB_Mill_3" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=ZB-T1HIST&M=3" Visible="False">
+                                <li><b>磨機日報#3#4</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_ZB_Mill_5" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=ZB-T1HIST&M=5" Visible="False">
+                                <li><b>磨機日報#5#6</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_ZB_Mill_7" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=ZB-T1HIST&M=7" Visible="False">
+                                <li><b>磨機日報#7#8</b></li>
+                            </asp:HyperLink>
+
+
+                            <asp:HyperLink ID="factory_ZB_cycle_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=ZB-T1HIST&M=1" Visible="False">
+                                <li><b>循環提運機#1#2</b></li>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="factory_ZB_cycle_3" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=ZB-T1HIST&M=3" Visible="False">
+                                <li><b>循環提運機#3#4</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_ZB_cycle_5" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=ZB-T1HIST&M=5" Visible="False">
+                                <li><b>循環提運機#5#6</b></li>
+                            </asp:HyperLink>
+                            
+                            <asp:HyperLink ID="factory_ZB_cycle_7" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=ZB-T1HIST&M=7" Visible="False">
+                                <li><b>循環提運機#7#8</b></li>
+                            </asp:HyperLink>
+
+
+                           <asp:HyperLink ID="factory_ZB_PV_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/PV/PV_H.aspx?F=ZB-T1HIST&M=1" Visible="False">
+                                <li><b>太陽能#1-線西</b></li>
+                            </asp:HyperLink>
+
+                           <asp:HyperLink ID="factory_ZB_PV_2" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/PV/PV_H.aspx?F=ZB-T1HIST&M=2" Visible="False">
+                                <li><b>太陽能#2-伸港</b></li>
+                            </asp:HyperLink>
+
+                        <asp:HyperLink ID="factory_KH" runat="server" NavigateUrl="/factory_index/index.aspx?F=KH-PCC-LH"
+                            class="list-group-item list-group-item-action bg-light collapsed" Visible="False">
+                            <b>高雄廠</b>
+                        <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KH_Power" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/power/Power_H.aspx?F=KH-PCC-LH" Visible="False">
+                                <li><b>用電量</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KH_Air" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=KH-PCC-LH&M=0" Visible="False">
+                                <li><b>空壓機</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KH_Mill" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=KH-PCC-LH&M=1" Visible="False">
+                                <li><b>磨機日報#1#2</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_KH_cycle" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=KH-PCC-LH&M=1" Visible="False">
+                                <li><b>循環提運機#1#2</b></li>
+                            </asp:HyperLink>
+
+
+
+                        <asp:HyperLink ID="factory_LD" runat="server" NavigateUrl="/factory_index/index.aspx?F=LD-T1HIST"
+                            class="list-group-item list-group-item-action bg-light collapsed" Visible="False">
+                            <b>龍德廠</b>
+                        <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LD_Power" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/power/Power_H.aspx?F=LD-T1HIST" Visible="False">
+                                <li><b>用電量</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LD_Air" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=LD-T1HIST&M=0" Visible="False">
+                                <li><b>空壓機</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LD_Air1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=LD-T1HIST&M=1" Visible="False">
+                                <li><b>空壓機#1</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LD_Air2" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=LD-T1HIST&M=2" Visible="False">
+                                <li><b>空壓機#2</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LD_Mill_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=LD-T1HIST&M=1" Visible="False">
+                                <li><b>磨機日報#1</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LD_Mill_2" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=LD-T1HIST&M=2" Visible="False">
+                                <li><b>磨機日報#2</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LD_cycle_1" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=LD-T1HIST&M=1" Visible="False">
+                                <li><b>循環提運機#1</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LD_cycle_2" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=LD-T1HIST&M=2" Visible="False">
+                                <li><b>循環提運機#2</b></li>
+                            </asp:HyperLink>
+
+
+                        <asp:HyperLink ID="factory_LZ" runat="server" NavigateUrl="/factory_index/index.aspx?F=LZ-T1HIST"
+                            class="list-group-item list-group-item-action bg-light collapsed" Visible="False">
+                            <b>利澤廠</b>
+                        <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LZ_Power" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/power/Power_H.aspx?F=LZ-T1HIST" Visible="False">
+                                <li><b>用電量</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LZ_Air" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=LZ-T1HIST&M=0" Visible="False">
+                                <li><b>空壓機</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LZ_Mill" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=LZ-T1HIST&M=1" Visible="False">
+                                <li><b>磨機日報#1#2</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_LZ_cycle" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=LZ-T1HIST&M=1" Visible="False">
+                                <li><b>循環提運機#1#2</b></li>
+                            </asp:HyperLink>
+
+
+                            <asp:HyperLink ID="factory_LZ_PV" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/PV/PV_H.aspx?F=LZ-T1HIST" Visible="False">
+                                <li><b>太陽能</b></li>
+                            </asp:HyperLink>
+
+                        <asp:HyperLink ID="factory_HL" runat="server" NavigateUrl="/factory_index/index.aspx?F=HL-T1HIST"
+                            class="list-group-item list-group-item-action bg-light collapsed" Visible="False">
+                            <b>花蓮廠</b>
+                        <div class="sb-sidenav-collapse-arrow"><svg style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_HL_Power" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/power/Power_H.aspx?F=HL-T1HIST" Visible="False">
+                                <li><b>用電量</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_HL_Air" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/AirComp/AirCompressorH.aspx?F=HL-T1HIST&M=0" Visible="False">
+                                <li><b>空壓機</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_HL_Mill" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_report.aspx?F=HL-T1HIST&M=1" Visible="False">
+                                <li><b>磨機日報#1#2</b></li>
+                            </asp:HyperLink>
+
+                            <asp:HyperLink ID="factory_HL_cycle" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/Mill/Mill_cycle.aspx?F=HL-T1HIST&M=1" Visible="False">
+                                <li><b>循環提運機#1#2</b></li>
+                            </asp:HyperLink>
+
+
+                        <asp:HyperLink ID="factory_XG" runat="server" NavigateUrl="/PV/PV_D.aspx?F=XG-T1HIST"
+                            class="list-group-item list-group-item-action bg-light collapsed" Visible="False">
+                            <b>小港廠</b>
+                        <div class="sb-sidenav-collapse-arrow"><svg id="down_XG" style="height:20px;" class="svg-inline--fa fa-angle-down fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path></svg></div>
+                        </asp:HyperLink>
+                        <!--
+                            <asp:HyperLink ID="factory_XG_PV" runat="server" class="list-group-item list-group-item-action bg-light" NavigateUrl="/PV/PV_D.aspx?F=XG-T1HIST" Visible="False">
+                                <li><b>太陽能</b></li>
+                            </asp:HyperLink>
+                        -->
+                    </div>
+                </div>
+            <!-- Page Content-->
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="32" fill="currentColor"
+                            class="bi bi-justify" viewBox="0 0 16 16" id="menu-toggle" onclick="Spin()">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg> 
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <li style="list-style-type:none;padding-left:15px"><b><!--<% Response.Write(name());%>--></b></li>
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                             <li class="nav-item active">
+                                <a class="nav-link" href="../index.aspx">Home</a>
+                             </li>
+                           <!--
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#!" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><% Response.Write(Session["User_Name"].ToString());%></a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/upd_p_data.aspx">修改個人資料</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/logout.aspx">登出</a>
+                                </div>
+                            </li>
+                           -->
+                        </ul>
+                    </div>
+                </nav>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                    </asp:ContentPlaceHolder>
+            </div>
+        </div>
+                <!-- /#page-content-wrapper -->
+        </form>
+
+        <!-- /#wrapper -->
+        <!-- Bootstrap core JavaScript -->
+        <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>-->
+        <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>-->
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../js/scripts.js"></script>
+        
+        <!-- 控制下拉式選單-->
+        <script src="../js/class_edit.js"></script>
+    </body>
+</html>
